@@ -5,7 +5,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+	/**
+	 * coje unos valores estaticos para 5 personas.
+	 * estas son usadas para cargar valores por defcto en una tabla 
+	 * de la clase TableViewAddDeleteRows
+	 */
 public class PersonTableUtil {
     /* Returns an observable list of persons */
     public static ObservableList<Person> getPersonList() {
@@ -18,6 +22,11 @@ public class PersonTableUtil {
     }
 
     /* Returns Person Id TableColumn */
+    /**
+     * coje el PersonID y lo devuelve
+     * @return
+     * el PersonID de la columna de la tabla
+     */
     public static TableColumn<Person, Integer> getIdColumn() {
         TableColumn<Person, Integer> personIdCol = new TableColumn<>("Id");
         personIdCol.setCellValueFactory(new PropertyValueFactory<>("personId"));
@@ -25,11 +34,21 @@ public class PersonTableUtil {
     }
 
     /* Returns First Name TableColumn */
+    /**
+     * coje el primer apellido y lo devuelve
+     * @return
+     * el First name la columna de la tabla
+     */
     public static TableColumn<Person, String> getFirstNameColumn() {
         TableColumn<Person, String> fNameCol = new TableColumn<>("First Name");
         fNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         return fNameCol;
     }
+    /**
+     * coje el segundo apellido y lo devuelve
+     * @return
+     * el last name la columna de la tabla
+     */
     public static TableColumn<Person, String> getLastNameColumn() {
         TableColumn<Person, String> lastNameCol = new TableColumn<>("Last Name");
         lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
@@ -37,6 +56,11 @@ public class PersonTableUtil {
     }
 
     /* Returns Birth Date TableColumn */
+    /**
+     * coje la fecha de nacimiento y la devuelve
+     * @return
+     * el BirthDate la columna de la tabla
+     */
     public static TableColumn<Person, LocalDate> getBirthDateColumn() {
         TableColumn<Person, LocalDate> bDateCol = new TableColumn<>("Birth Date");
         bDateCol.setCellValueFactory(new PropertyValueFactory<>("birthDate"));

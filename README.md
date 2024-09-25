@@ -1,2 +1,3 @@
 # ejemploTablasAgregarQuitarFilas_joel
  
+el programa consiste en una pantalla que permite agregar o quitar personas haciendo uso de botones que llaman a los diferentes metodos de las 3 clasescontenidads (exceptuando HEllo Controller) en la carpeta de src/java/org/example etc... los 3 archivos representasn una clase para identificar una persona, con los atributos correspondientes, la propia pantalla y para agregar personas como filas a la tabla de la pantalla. cada una tiene metodos para hacer esto posible
