@@ -1,18 +1,16 @@
-package main.java.org.example.ejemplotablasagregarquitarfilas;
+package org.example.ejemplotablasagregarquitarfilas;
 
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.time.LocalDate;
 import java.util.Arrays;
-import javafx.scene.control.SelectionMode;
+
 import javafx.scene.layout.HBox;
 import static javafx.scene.control.TableView.TableViewSelectionModel;
 /**
@@ -137,9 +135,23 @@ public class TableViewAddDeleteRows extends Application {
      * lee una persona y la añade a la tabla argumento
      */
     public void addPerson() {
-        Person p = getPerson();
-        table.getItems().add(p);
-        clearFields();
+        if (fNameField.getText().isEmpty() || lNameField.getText().isEmpty() || dobField.getValue() == null ) {
+            Alert alerta = new Alert (Alert.AlertType.ERROR);
+            alerta.setHeaderText(null);
+            alerta.setTitle("¡Campos vacios!");
+            alerta.setContentText("contiene algun campo vacio sin rellenar");
+            alerta.showAndWait();
+        } else if (dobField.getValue().isAfter(LocalDate.now())) {
+            Alert alerta = new Alert (Alert.AlertType.ERROR);
+            alerta.setHeaderText(null);
+            alerta.setTitle("¡Posterior a hoy!");
+            alerta.setContentText("Fecha de nacimiento erronea");
+            alerta.showAndWait();
+        } else {
+            Person p = getPerson();
+            table.getItems().add(p);
+            clearFields();
+        }
     }
     /**
      * limpia los campos de la fila seleccionada, y los setea a nulos
